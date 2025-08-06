@@ -1,0 +1,14 @@
+{
+	"servers": {
+		"MCPServerClashOfClans": {
+			"type": "stdio",
+            "command": "dotnet",
+			"args": [
+			"run",
+                "--project",
+                "C:\\Projetos\\MCPServerClashOfClans\\MCPServerClashOfClans\\MCPServerClashOfClans.csproj"
+			]
+		}
+	},
+	"inputs": []
+}

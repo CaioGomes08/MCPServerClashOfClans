@@ -48,4 +48,20 @@ public class ClanTool
 		var list = await _clanService.GetClanByNameAsync(name);
 		return JsonSerializer.Serialize(list);
 	}
+
+	[McpServerTool, Description("Buscar um clan pelo nome e traz o que tem mais vitoria")]
+	public async Task<string> GetClanByNameWithMostWins([Description("O nome do clan")] string name)
+	{
+		var list = await _clanService.GetClanByNameAsync(name);
+		var clan = list.OrderByDescending(c => c.WarWins).FirstOrDefault();
+		return JsonSerializer.Serialize(clan);
+	}
+
+	[McpServerTool, Description("Buscar um clan pelo nome e traz o que tem mais derrota")]
+	public async Task<string> GetClanByNameWithMostLosses([Description("O nome do clan")] string name)
+	{
+		var list = await _clanService.GetClanByNameAsync(name);
+		var clan = list.OrderByDescending(c => c.WarLosses).FirstOrDefault();
+		return JsonSerializer.Serialize(clan);
+	}
 }

@@ -1,0 +1,8 @@
+{
+    "chat.mcp.discovery.enabled": true,
+    "chat.mcp.enabled": true,
+    "chat.mcp.serverSampling": {
+        
+    },
+    
+}
