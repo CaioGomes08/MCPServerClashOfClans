@@ -19,11 +19,17 @@ builder.Services
 	.WithStdioServerTransport()
 	.WithToolsFromAssembly();
 
+DotNetEnv.Env.Load();
+
 // Bind options
+builder.Configuration.AddEnvironmentVariables();
+
 builder.Services.Configure<ClashOfClansApiOptions>(
 	builder.Configuration.GetSection("ClashOfClansApi"));
 
 builder.Services.AddHttpClient<IClanService, ClanService>();
+
+
 
 await builder.Build().RunAsync();
 
